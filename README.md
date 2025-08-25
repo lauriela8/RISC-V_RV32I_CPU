@@ -1,4 +1,4 @@
-<img width="913" height="109" alt="image" src="https://github.com/user-attachments/assets/a3418fcf-cf8f-436f-a070-d8116ec97eb8" /># 🚀 RISC-V_RV32I_CPU
+# 🚀 RISC-V_RV32I_CPU
 본 프로젝트는 RV32I 명령어 집합을 지원하는 RISC-V CPU를 직접 설계하고,  
 단일 사이클(Single Cycle) 및 다중 사이클(Multi Cycle) 구조를 구현·비교한 시스템입니다.  
 Verilog/SystemVerilog로 작성하고 Vivado 및 시뮬레이션 환경에서 검증하였습니다.
