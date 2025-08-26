@@ -92,7 +92,79 @@ Verilog/SystemVerilog로 작성하고 Vivado 및 시뮬레이션 환경에서 �
 **- Execute:** ALU가 rs1, rs2의 값을 받아 연산 후 결과를 레지스터(rd)에 저장  
 
 ### R-Type Simulation
-<img width="800"  alt="image" src="https://github.com/user-attachments/assets/5a05787f-e4ac-4082-a793-8def76af8ef5" />
+<img width="800" height="1122" alt="image" src="https://github.com/user-attachments/assets/0c400194-faae-4876-8c64-9761247eda7c" />
+
+
+ROM에 다양한 R-Type 명령어를 저장하고 실행한 결과, 연산 값이 정상적으로 레지스터에 기록되는 것을 확인했습니다.  
+
+| 명령어 | 연산식              | 결과 값 |
+|--------|---------------------|---------|
+| ADD x4, x1, x2  | 11 + 12           | 23  |
+| SUB x5, x1, x2  | 11 - 12           | -1  |
+| SLL x6, x1, x2  | 11 << 12          | 45056 |
+| SLT x7, x1, x2  | (11 < 12) ? 1 : 0 | 1 (True) |
+| SLTU x8, x1, x2 | (11 < 12, Unsigned) | 1 |
+| XOR x9, x1, x2  | 11 ^ 12           | 7 |
+| SRL x10, x1, x2 | 11 >> 12          | 0 |
+| SRA x11, x1, x2 | 11 >>> 12         | 0 |
+| OR x12, x1, x2  | 11 \| 12          | 15 |
+| AND x13, x1, x2 | 11 & 12           | 8 |
+
+파형에서도 각 명령어 수행 후 목적지 레지스터(rd)에 올바른 값이 기록됨을 확인할 수 있습니다.
+
+---
+
+### I-Type Simulation
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/6f12b56d-26bd-4409-99ad-8cc974d8c483" />  
+
+
+| 명령어 | 연산식              | 결과 값 |
+|--------|---------------------|---------|
+| ADDI x14, x1, 4  | 11 + 4   | 15 |
+| SLTI x15, x1, 4  | 11 < 4   | 0 (False) |
+| SLTIU x16, x1, 4 | 11 < 4 (Unsigned) | 0 (False)|
+| XORI x17, x1, 4  | 11 ^ 4   | 15 |
+| ORI x18, x1, 4   | 11 \| 4  | 15 |
+| ANDI x19, x1, 4  | 11 & 4   | 0 |
+| SLLI x20, x1, 4  | 11 << 2  | 44 |
+| SRLI x21, x1, 4  | 11 >> 2  | 2 |
+| SRAI x22, x1, 4  | 11 >>> 2 | 2 |
+
+시뮬레이션 결과, 모든 I-Type 명령어가 정상적으로 동작하며, 연산 값이 목적지 레지스터에 기록됨을 확인할 수 있습니다.  
+
+---
+
+### S-Type Simulation
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/178e1fec-5e27-452e-bccd-fe4215fb70a4" />  
+
+
+| 명령어 | 연산식              | 결과 값 |
+|--------|---------------------|---------|
+|sw x4, 0(x1) |M[rs1 + imm][0:31] = rs2[0:31] | 00000017|
+|sb x5, 4(x1) |M[rs1 + imm][0:15] = rs2[0:15] | xxxxxxff|
+|sh x6, 8(x1) |M[rs1 + imm][0:7] = rs2[0:7] |xxxxb000|  
+
+각각 sw는 x4의 전체 32비트, sb는 x5의 하위 8비트, sh는 하위 16비트를 RAM에 저장하는 것을 확인할 수 있습니다. 
+
+---
+
+### L-Type Simulation
+<img width="800"   src="https://github.com/user-attachments/assets/2df02b6b-d625-473f-ba7c-90edc9cdc5d3" />
+
+---
+
+### B-Type Simulation
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/37090314-aca9-41ee-b093-7b8252731b1e" />
+
+---
+
+### U-Type Simulation
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/846e9da1-5b58-473f-bf79-0d1a39dfaae5" />
+
+---
+
+### J-Type Simulation
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/a0372c3d-2461-43bf-aadc-bda7e18af6fa" />
 
 ---
 
