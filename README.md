@@ -150,7 +150,13 @@ ROM에 다양한 R-Type 명령어를 저장하고 실행한 결과, 연산 값�
 
 ### L-Type Simulation
 <img width="800"   src="https://github.com/user-attachments/assets/2df02b6b-d625-473f-ba7c-90edc9cdc5d3" />
-
+| 명령어 | 연산식              | 결과 값 |
+|--------|---------------------|---------|
+|lb, x23. 0(x1) | x23 = M[rs1 + 0][0:7]
+|lh, x24. 4(x1) |
+|lw, x25. 8(x1) |
+|lbu, x26. 4(x1) |
+|lhu, x27. 8(x1) |
 ---
 
 ### B-Type Simulation
