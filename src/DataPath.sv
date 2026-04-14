@@ -245,8 +245,6 @@ module DataPath (
         .y(PC_4_AdderResult)
     );
 
-    assign PCSrcMuxSel = jal | jalr | (btaken & branch);
-
     length_proc U_LengthProc (
         .instrCode({
             {20{1'b0}}, MemAccReg_func3, 12'b0
